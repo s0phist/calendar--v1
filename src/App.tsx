@@ -2,11 +2,13 @@ import React from 'react';
 import { Calendar } from './components/Calendar';
 
 import './styles/App.scss';
+import { formateDate } from './utils/helpers/date';
 
 export const App: React.FC = () => {
   const [selectedDate, selectDate] = React.useState(new Date());
   return (
-    <div className="App">
+    <div className="app__container">
+      <div className="date__container">{formateDate(selectedDate, 'DD MM YYYY')}</div>
       <Calendar selectDate={selectDate} selectedDate={selectedDate} />
     </div>
   );

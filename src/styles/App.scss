@@ -1,9 +1,18 @@
-.App {
+.app__container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #eee;
+  background-color: #ffd54f;
   height: 100vh;
   margin-inline: auto;
+}
+
+.date__container {
+  background-color: #004d40;
+  color: #e0f2f1;
+  font-size: 15px;
+  padding: 5px 25px;
+  border-radius: 15px;
+  margin-bottom: 15px;
 }
