@@ -9,7 +9,7 @@ export const App: React.FC = () => {
   return (
     <div className="app__container">
       <div className="date__container">{formateDate(selectedDate, 'DD MM YYYY')}</div>
-      <Calendar selectDate={selectDate} selectedDate={selectedDate} />
+      <Calendar locale='en-US' selectDate={selectDate} selectedDate={selectedDate} />
     </div>
   );
 };

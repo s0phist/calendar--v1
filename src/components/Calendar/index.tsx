@@ -7,7 +7,7 @@ import styles from './calendar.module.scss';
 interface CalendarProps {
   locale?: string;
   selectedDate?: Date;
-  selectDate?: (date: Date) => void;
+  selectDate: (date: Date) => void;
   firstWeekDay?: number;
 }
 
@@ -22,7 +22,11 @@ export const Calendar: React.FC<CalendarProps> = ({
   return (
     <div className={styles.root}>
       <div className={styles.header}>
-        <div aria-hidden className={styles.arrow_left} />
+        <div
+          onClick={() => functions.onClickArrow('left')}
+          aria-hidden
+          className={styles.arrow_left}
+        />
 
         {state.mode === 'days' && (
           <div aria-hidden onClick={() => functions.setMode('monthes')}>
@@ -42,7 +46,11 @@ export const Calendar: React.FC<CalendarProps> = ({
             {state.selectedYearInterval[state.selectedYearInterval.length - 1]}
           </div>
         )}
-        <div aria-hidden className={styles.arrow_right} />
+        <div
+          onClick={() => functions.onClickArrow('rigth')}
+          aria-hidden
+          className={styles.arrow_right}
+        />
       </div>
       <div className={styles.container}>
         {state.mode === 'days' && (
@@ -78,6 +86,62 @@ export const Calendar: React.FC<CalendarProps> = ({
               })}
             </div>
           </>
+        )}
+        {state.mode === 'monthes' && (
+          <div className={styles.pick_item_container}>
+            {state.monthesNames.map((monthesNames) => {
+              const isCurrentMonth =
+                new Date().getMonth() === monthesNames.monthIndex &&
+                new Date().getFullYear() === state.selectedYear;
+              const isSelectMonth = monthesNames.monthIndex === state.selectedMonth.monthIndex;
+
+              return (
+                <div
+                  aria-hidden
+                  onClick={() => {
+                    functions.setSelectedMonthByIndex(monthesNames.monthIndex);
+                    functions.setMode('days');
+                  }}
+                  className={[
+                    styles.pick_item,
+                    isCurrentMonth ? styles.pick_item_month : '',
+                    isSelectMonth ? styles.pick_item_selected : '',
+                  ].join(' ')}
+                >
+                  {monthesNames.monthShort}
+                </div>
+              );
+            })}
+          </div>
+        )}
+        {state.mode === 'years' && (
+          <div className={styles.pick_item_container}>
+            <div className={styles.pick_item_year}>{state.selectedYearInterval[0] - 1}</div>
+            {state.selectedYearInterval.map((year) => {
+              const isCurrentYear = new Date().getFullYear() === year;
+              const isSelectedYear = year === state.selectedYear;
+
+              return (
+                <div
+                  aria-hidden
+                  onClick={() => {
+                    functions.setSelectedYear(year);
+                    functions.setMode('monthes');
+                  }}
+                  className={[
+                    styles.pick_item,
+                    isCurrentYear ? styles.pick_item_month : '',
+                    isSelectedYear ? styles.pick_item_selected : '',
+                  ].join(' ')}
+                >
+                  {year}
+                </div>
+              );
+            })}
+            <div className={styles.pick_item_year}>
+              {state.selectedYearInterval[state.selectedYearInterval.length - 1] + 1}
+            </div>
+          </div>
         )}
       </div>
     </div>

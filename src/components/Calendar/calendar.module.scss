@@ -94,3 +94,48 @@
     color: #004d40;
   }
 }
+
+.pick_item {
+  padding: 9px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #26a69a;
+  }
+
+  &_container {
+    font-weight: 400;
+    color: #e0f2f1;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1px;
+    font-size: 12px;
+  }
+
+  &_year {
+    font-weight: 300;
+    padding: 9px 16px;
+    color: #00897b;
+  }
+
+  &_month {
+    background-color: #e0f2f1;
+    color: #004d40;
+  }
+
+  &_selected {
+    color: #e0f2f1;
+    background-color: #26a69a;
+
+    &:hover {
+      background-color: #80cbc4;
+      color: #004d40;
+    }
+  }
+}
