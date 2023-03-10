@@ -1,20 +1,22 @@
+@import './../../styles/var';
+
 .root {
-  width: 200px;
+  width: $px320-200;
   border-radius: 5px;
   text-transform: capitalize;
-  background-color: #004d40;
-  color: #e0f2f1;
+  background-color: $green-color;
+  color: $white-color;
 }
 
 .header {
   position: relative;
   border-radius: 5px 5px 0 0;
-  background-color: #00695c;
-  padding: 10px;
+  background-color: $light-color1;
+  padding: $px22-13;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 10px -1px rgba($color: #004d40, $alpha: 0.6);
+  box-shadow: 0 2px 10px -1px rgba($color: $green-color, $alpha: 0.6);
 }
 
 .arrow_left {
@@ -39,11 +41,16 @@
   padding: 5px;
 }
 
+.toggle_field {
+  font-size: $px22-13;
+  cursor: pointer;
+}
+
 .week_names {
-  height: 20px;
+  height: $px35-20;
   font-weight: 600;
-  font-size: 8px;
-  color: #80cbc4;
+  font-size: $px13-8;
+  color: $light-color4;
   text-align: center;
   align-items: center;
   display: grid;
@@ -52,7 +59,7 @@
 }
 
 .days {
-  font-size: 13px;
+  font-size: $px22-13;
   font-weight: 400;
   color: #e0f2f1;
   text-align: center;
@@ -60,38 +67,38 @@
   align-items: center;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: 1fr;
-  gap: 1px;
+  gap: $px5-1;
 }
 
 .day {
   border-radius: 5px;
-  padding: 5px 0;
+  padding: 5px;
   cursor: pointer;
 
   &:hover {
-    background-color: #00695c;
+    background-color: $light-color1;
   }
 }
 
 .day_additional {
-  padding: 5px 0;
+  padding: 5px;
   font-weight: 300;
   cursor: pointer;
-  color: #00897b;
+  color: $light-color2;
 }
 
 .day_today {
-  background-color: #e0f2f1;
-  color: #004d40;
+  background-color: $white-color;
+  color: $green-color;
 }
 
 .day_selected {
-  color: #e0f2f1;
-  background-color: #26a69a;
+  color: $white-color;
+  background-color: $light-color3;
 
   &:hover {
-    background-color: #80cbc4;
-    color: #004d40;
+    background-color: $light-color4;
+    color: $green-color;
   }
 }
 
@@ -104,38 +111,38 @@
   border-radius: 5px;
 
   &:hover {
-    background-color: #26a69a;
+    background-color: $light-color3;
   }
 
   &_container {
     font-weight: 400;
-    color: #e0f2f1;
+    color: $white-color;
     text-align: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 1px;
-    font-size: 12px;
+    font-size: $px22-13;
   }
 
   &_year {
     font-weight: 300;
     padding: 9px 16px;
-    color: #00897b;
+    color: $light-color2;
   }
 
   &_month {
-    background-color: #e0f2f1;
-    color: #004d40;
+    background-color: $white-color;
+    color: $green-color;
   }
 
   &_selected {
-    color: #e0f2f1;
-    background-color: #26a69a;
+    color: $white-color;
+    background-color: $light-color3;
 
     &:hover {
-      background-color: #80cbc4;
-      color: #004d40;
+      background-color: $light-color4;
+      color: $green-color;
     }
   }
 }

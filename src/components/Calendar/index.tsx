@@ -29,19 +29,19 @@ export const Calendar: React.FC<CalendarProps> = ({
         />
 
         {state.mode === 'days' && (
-          <div aria-hidden onClick={() => functions.setMode('monthes')}>
+          <div className={styles.toggle_field} aria-hidden onClick={() => functions.setMode('monthes')}>
             {state.monthesNames[state.selectedMonth.monthIndex].month} {state.selectedYear}
           </div>
         )}
 
         {state.mode === 'monthes' && (
-          <div aria-hidden onClick={() => functions.setMode('years')}>
+          <div className={styles.toggle_field} aria-hidden onClick={() => functions.setMode('years')}>
             {state.selectedYear}
           </div>
         )}
 
         {state.mode === 'years' && (
-          <div aria-hidden onClick={() => functions.setMode('days')}>
+          <div className={styles.toggle_field} aria-hidden onClick={() => functions.setMode('days')}>
             {state.selectedYearInterval[0]} -{' '}
             {state.selectedYearInterval[state.selectedYearInterval.length - 1]}
           </div>
